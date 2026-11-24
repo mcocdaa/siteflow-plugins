@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "resume_print_badge",
+  "name": "简历求职状态条",
+  "name_en": "Resume Availability Ribbon",
+  "description": "在简历顶部展示求职意向、到岗时间与更新标记，支持控制打印或导出 PDF 时是否保留显示。",
+  "description_en": "Displays an availability status ribbon at the top of a resume with configurable print and PDF visibility.",
+  "version": "1.0.0",
+  "icon": "printer",
+  "targets": [
+    "resume"
+  ],
+  "pages": [
+    "resume"
+  ],
+  "slot": "main_start",
+  "assets": {
+    "css": [
+      "assets/style.css"
+    ],
+    "js": [
+      "assets/main.js"
+    ]
+  },
+  "mount": {
+    "tag": "aside",
+    "class": "sf-ext-resume-badge",
+    "aria_label": "简历状态提示"
+  },
+  "config_schema": [
+    {
+      "key": "availability",
+      "kind": "select",
+      "label_default": "当前状态",
+      "default": "open",
+      "options": [
+        {
+          "value": "open",
+          "label_default": "正在看新机会"
+        },
+        {
+          "value": "consulting",
+          "label_default": "开放顾问 / 合作"
+        },
+        {
+          "value": "passive",
+          "label_default": "暂不求职，欢迎交流"
+        },
+        {
+          "value": "custom",
+          "label_default": "自定义状态文案"
+        }
+      ]
+    },
+    {
+      "key": "custom_label",
+      "kind": "text",
+      "label_default": "自定义状态文案",
+      "default": "",
+      "max_length": 48
+    },
+    {
+      "key": "note",
+      "kind": "text",
+      "label_default": "补充说明（意向岗位 / 到岗时间）",
+      "default": "可随时沟通，支持远程或现场办公。",
+      "max_length": 140
+    },
+    {
+      "key": "updated_tag",
+      "kind": "text",
+      "label_default": "更新标记（可选）",
+      "default": "",
+      "max_length": 32
+    },
+    {
+      "key": "show_in_print",
+      "kind": "boolean",
+      "label_default": "打印 / 导出 PDF 时保留显示",
+      "default": false
+    }
+  ]
+}

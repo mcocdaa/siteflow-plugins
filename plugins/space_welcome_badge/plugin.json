@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "id": "space_welcome_badge",
+  "name": "空间状态徽章栏",
+  "name_en": "Space Status Bar",
+  "description": "在空间作品画廊上方展示精选状态胶囊、实时作品统计与欢迎语，自适应亮暗主题。",
+  "description_en": "Renders an editorial status pill bar above the space gallery with live project card count and optional tagline.",
+  "version": "1.0.0",
+  "icon": "layers",
+  "targets": [
+    "space"
+  ],
+  "pages": [
+    "space"
+  ],
+  "slot": "main_start",
+  "assets": {
+    "css": [
+      "assets/style.css"
+    ],
+    "js": [
+      "assets/main.js"
+    ]
+  },
+  "mount": {
+    "tag": "section",
+    "class": "sf-ext-space-welcome",
+    "aria_label": "空间状态栏"
+  },
+  "config_schema": [
+    {
+      "key": "status_label",
+      "kind": "text",
+      "label_default": "状态标签",
+      "default": "持续更新中",
+      "max_length": 40
+    },
+    {
+      "key": "tagline",
+      "kind": "text",
+      "label_default": "欢迎语 / 副标题",
+      "default": "收录精选作品与在线演示，点击卡片即可体验。",
+      "max_length": 140
+    },
+    {
+      "key": "tone",
+      "kind": "select",
+      "label_default": "徽章色调",
+      "default": "accent",
+      "options": [
+        {
+          "value": "accent",
+          "label_default": "跟随空间强调色"
+        },
+        {
+          "value": "emerald",
+          "label_default": "在线翠绿"
+        },
+        {
+          "value": "amber",
+          "label_default": "精选暖琥珀"
+        },
+        {
+          "value": "neutral",
+          "label_default": "低调中性灰"
+        }
+      ]
+    },
+    {
+      "key": "show_count",
+      "kind": "boolean",
+      "label_default": "显示空间内作品数量",
+      "default": true
+    },
+    {
+      "key": "count_suffix",
+      "kind": "text",
+      "label_default": "数量单位后缀",
+      "default": "个作品",
+      "max_length": 20
+    },
+    {
+      "key": "show_pulse",
+      "kind": "boolean",
+      "label_default": "状态圆点呼吸动效",
+      "default": true
+    }
+  ]
+}

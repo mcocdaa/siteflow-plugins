@@ -1,0 +1,113 @@
+.sf-ext-resume-badge {
+  --sf-rpb-accent: #10b981;
+  margin: 0 0 22px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border, #e2e8f0);
+  border-left: 3px solid var(--sf-rpb-accent);
+  background: color-mix(in srgb, var(--sf-rpb-accent) 6%, var(--surface, #ffffff));
+  color: var(--text, #0f172a);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  flex-wrap: wrap;
+}
+
+.sf-ext-resume-badge[hidden] {
+  display: none;
+}
+
+.sf-ext-resume-badge[data-sf-rpb-state="open"] {
+  --sf-rpb-accent: #10b981;
+}
+
+.sf-ext-resume-badge[data-sf-rpb-state="consulting"] {
+  --sf-rpb-accent: var(--accent, #4f46e5);
+}
+
+.sf-ext-resume-badge[data-sf-rpb-state="passive"] {
+  --sf-rpb-accent: var(--text-muted, #64748b);
+}
+
+.sf-ext-resume-badge[data-sf-rpb-state="custom"] {
+  --sf-rpb-accent: #d97706;
+}
+
+.sf-ext-resume-badge .sf-rpb-lead {
+  display: flex;
+  align-items: center;
+  gap: 8px 12px;
+  flex-wrap: wrap;
+  min-width: 0;
+  flex: 1 1 240px;
+}
+
+.sf-ext-resume-badge .sf-rpb-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text, #0f172a);
+  white-space: nowrap;
+}
+
+.sf-ext-resume-badge .sf-rpb-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--sf-rpb-accent);
+}
+
+.sf-ext-resume-badge .sf-rpb-note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-muted, #64748b);
+}
+
+.sf-ext-resume-badge .sf-rpb-updated {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border, #e2e8f0);
+  background: var(--surface, #ffffff);
+  color: var(--text-muted, #64748b);
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 11.5px;
+  line-height: 1.4;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media print {
+  .sf-ext-resume-badge.sf-rpb-hide-print {
+    display: none !important;
+  }
+
+  .sf-ext-resume-badge.sf-rpb-show-print {
+    margin: 0 0 12px !important;
+    padding: 6px 10px !important;
+    border: 1px solid #999 !important;
+    border-left: 3px solid #222 !important;
+    border-radius: 4px !important;
+    background: transparent !important;
+    color: #111 !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .sf-ext-resume-badge.sf-rpb-show-print .sf-rpb-icon {
+    color: #222 !important;
+  }
+
+  .sf-ext-resume-badge.sf-rpb-show-print .sf-rpb-note,
+  .sf-ext-resume-badge.sf-rpb-show-print .sf-rpb-updated {
+    color: #333 !important;
+    border-color: #999 !important;
+    background: transparent !important;
+  }
+}

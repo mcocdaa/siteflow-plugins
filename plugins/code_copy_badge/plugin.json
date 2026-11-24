@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "code_copy_badge",
+  "name": "代码块一键复制",
+  "name_en": "Code Copy Toolbar",
+  "description": "为博客文章中的代码块自动添加语言标签与一键复制按钮，自适应亮暗主题与键盘无障碍操作。",
+  "description_en": "Enhances fenced code blocks in blog posts with a language badge and a one-click SVG copy button.",
+  "version": "1.0.0",
+  "icon": "command",
+  "targets": [
+    "blog"
+  ],
+  "pages": [
+    "post"
+  ],
+  "slot": "body_end",
+  "assets": {
+    "css": [
+      "assets/style.css"
+    ],
+    "js": [
+      "assets/main.js"
+    ]
+  },
+  "mount": {
+    "tag": "div",
+    "class": "sf-ext-code-copy-host",
+    "aria_label": "代码块复制增强"
+  },
+  "config_schema": [
+    {
+      "key": "show_language",
+      "kind": "boolean",
+      "label_default": "显示代码语言标签",
+      "default": true
+    },
+    {
+      "key": "button_style",
+      "kind": "select",
+      "label_default": "复制按钮显示方式",
+      "default": "hover",
+      "options": [
+        {
+          "value": "hover",
+          "label_default": "悬停显示（聚焦常驻）"
+        },
+        {
+          "value": "always",
+          "label_default": "始终显示"
+        }
+      ]
+    },
+    {
+      "key": "copy_label",
+      "kind": "text",
+      "label_default": "复制按钮文案",
+      "default": "复制",
+      "max_length": 24
+    },
+    {
+      "key": "copied_label",
+      "kind": "text",
+      "label_default": "复制成功提示",
+      "default": "已复制",
+      "max_length": 24
+    },
+    {
+      "key": "reset_delay_ms",
+      "kind": "number",
+      "label_default": "成功状态保持时长 (ms)",
+      "default": 1800,
+      "min": 600,
+      "max": 5000,
+      "step": 200
+    }
+  ]
+}

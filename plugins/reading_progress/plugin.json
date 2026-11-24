@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "id": "reading_progress",
+  "name": "阅读进度条",
+  "name_en": "Reading Progress",
+  "description": "在博客文章顶部显示平滑滚动阅读进度条，可选悬浮百分比胶囊并支持一键返回顶部。",
+  "description_en": "Displays a smooth top scroll progress rail on blog posts with an optional floating percentage pill and back-to-top click action.",
+  "version": "1.0.0",
+  "icon": "eye",
+  "targets": [
+    "blog"
+  ],
+  "pages": [
+    "post"
+  ],
+  "slot": "body_start",
+  "assets": {
+    "css": [
+      "assets/style.css"
+    ],
+    "js": [
+      "assets/main.js"
+    ]
+  },
+  "mount": {
+    "tag": "div",
+    "class": "sf-ext-reading-progress",
+    "aria_label": "阅读进度"
+  },
+  "config_schema": [
+    {
+      "key": "height_px",
+      "kind": "range",
+      "label_default": "进度条高度 (px)",
+      "default": 3,
+      "min": 2,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "key": "color_style",
+      "kind": "select",
+      "label_default": "进度条配色",
+      "default": "accent",
+      "options": [
+        {
+          "value": "accent",
+          "label_default": "跟随主题强调色"
+        },
+        {
+          "value": "gradient",
+          "label_default": "渐变动效"
+        },
+        {
+          "value": "mono",
+          "label_default": "极简黑白"
+        }
+      ]
+    },
+    {
+      "key": "show_percentage",
+      "kind": "boolean",
+      "label_default": "显示悬浮百分比胶囊",
+      "default": true
+    },
+    {
+      "key": "pill_position",
+      "kind": "select",
+      "label_default": "百分比胶囊位置",
+      "default": "bottom-right",
+      "options": [
+        {
+          "value": "bottom-right",
+          "label_default": "右下角"
+        },
+        {
+          "value": "bottom-left",
+          "label_default": "左下角"
+        },
+        {
+          "value": "top-right",
+          "label_default": "右上角"
+        }
+      ]
+    },
+    {
+      "key": "hide_at_top",
+      "kind": "boolean",
+      "label_default": "位于顶部时自动隐藏",
+      "default": true
+    }
+  ]
+}
