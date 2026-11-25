@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Plugin Pack (manifests + JS + SVG + ZIP)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - name: Check plugin JS syntax
+        run: |
+          for script in plugins/*/assets/*.js; do
+            node --check "$script"
+          done
+      - name: Validate manifests, SVG security, assets & ZIP smoke test
+        run: python3 scripts/validate_pack.py
