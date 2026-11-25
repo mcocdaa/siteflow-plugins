@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "id": "dafeiyu_theme",
+  "name": "大肥鱼深海主题",
+  "name_en": "DaFeiYu Deep-Sea Theme",
+  "description": "清透深海蓝白配色 Tokens、大肥鱼风格自定义 SVG 图标集与标题旁微动效大肥鱼徽章，适配空间、博客与简历。",
+  "description_en": "Breezy ocean blue-and-white theme tokens, custom DaFeiYu-inspired SVG icons, and a gentle animated title badge across spaces, blogs, and resumes.",
+  "version": "1.0.0",
+  "icon": "palette",
+  "targets": [
+    "space",
+    "blog",
+    "resume"
+  ],
+  "pages": [
+    "space",
+    "list",
+    "post",
+    "resume"
+  ],
+  "slot": "title_deco",
+  "mount": {
+    "tag": "span",
+    "class": "sf-ext-dafeiyu-deco",
+    "aria_label": "大肥鱼主题徽章"
+  },
+  "tokens": {
+    "--accent": "#3b82f6",
+    "--accent-soft": "rgba(59, 130, 246, 0.12)",
+    "--bg": "#f2f8ff",
+    "--surface": "#ffffff",
+    "--bg-card": "#ffffff",
+    "--bg-hover": "#e6f1ff",
+    "--text": "#0c2444",
+    "--muted": "#4a6b8c",
+    "--text-muted": "#4a6b8c",
+    "--border": "#cde0f7",
+    "--border-hover": "#93c5fd",
+    "--radius-card": "18px",
+    "--radius-btn": "12px",
+    "--shadow-hover": "0 12px 28px rgba(37, 99, 235, 0.14)"
+  },
+  "icon_overrides": {
+    "layers": "assets/icons/layers.svg",
+    "book-open": "assets/icons/book-open.svg",
+    "file-text": "assets/icons/file-text.svg",
+    "globe": "assets/icons/globe.svg",
+    "mail": "assets/icons/mail.svg",
+    "folder": "assets/icons/folder.svg",
+    "link": "assets/icons/link.svg",
+    "external-link": "assets/icons/link.svg"
+  },
+  "assets": {
+    "css": [
+      "assets/style.css"
+    ],
+    "js": [
+      "assets/main.js"
+    ]
+  },
+  "config_schema": [
+    {
+      "key": "badge_text",
+      "kind": "text",
+      "label_default": "徽章文案",
+      "default": "大肥鱼",
+      "max_length": 24
+    },
+    {
+      "key": "badge_style",
+      "kind": "select",
+      "label_default": "徽章样式",
+      "default": "pill",
+      "options": [
+        {
+          "value": "pill",
+          "label_default": "胶囊徽章（图标+文案）"
+        },
+        {
+          "value": "compact",
+          "label_default": "迷你圆章（仅图标）"
+        }
+      ]
+    },
+    {
+      "key": "show_bubbles",
+      "kind": "boolean",
+      "label_default": "显示漂浮气泡装饰",
+      "default": true
+    },
+    {
+      "key": "show_wave",
+      "kind": "boolean",
+      "label_default": "显示海浪微光装饰",
+      "default": true
+    }
+  ]
+}

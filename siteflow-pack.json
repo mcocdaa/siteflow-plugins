@@ -3,15 +3,16 @@
   "id": "siteflow-plugins",
   "name": "SiteFlow 官方扩展插件包",
   "name_en": "SiteFlow Official Plugin Pack",
-  "description": "SiteFlow 官方声明式扩展插件包，包含阅读进度条、代码块一键复制、空间状态徽章栏与简历求职状态条，覆盖博客、空间与简历三大场景。",
-  "description_en": "Official declarative plugin pack for SiteFlow featuring reading progress bar, one-click code copy toolbar, space status bar, and print-aware resume availability ribbon.",
-  "version": "1.0.0",
+  "description": "SiteFlow 官方声明式扩展插件包，包含阅读进度条、代码块一键复制、空间状态徽章栏、简历求职状态条与大肥鱼深海主题，覆盖博客、空间与简历三大场景。",
+  "description_en": "Official declarative plugin pack for SiteFlow featuring reading progress bar, one-click code copy toolbar, space status bar, print-aware resume availability ribbon, and DaFeiYu deep-sea theme.",
+  "version": "1.1.0",
   "author": "SiteFlow",
   "homepage": "https://github.com/mcocdaa/siteflow-plugins",
   "plugins": [
     "plugins/reading_progress",
     "plugins/code_copy_badge",
     "plugins/space_welcome_badge",
-    "plugins/resume_print_badge"
+    "plugins/resume_print_badge",
+    "plugins/dafeiyu_theme"
   ]
 }

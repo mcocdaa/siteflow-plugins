@@ -35,6 +35,7 @@ Every plugin from an external pack receives a namespaced canonical ID (`siteflow
 | `code_copy_badge` | `siteflow-plugins.code_copy_badge` | `blog` | `post` | `body_end` | Enhances `.post-body pre > code` blocks with a language chip and one-click SVG copy toolbar. |
 | `space_welcome_badge` | `siteflow-plugins.space_welcome_badge` | `space` | `space` | `main_start` | Editorial status pill bar above the space gallery with live project card count and optional tagline. |
 | `resume_print_badge` | `siteflow-plugins.resume_print_badge` | `resume` | `resume` | `main_start` | Clean availability status ribbon for resumes with configurable `@media print` / PDF visibility. |
+| `dafeiyu_theme` | `siteflow-plugins.dafeiyu_theme` | `space`, `blog`, `resume` | `space`, `list`, `post`, `resume` | `title_deco` | Breezy ocean blue-and-white theme tokens, custom DaFeiYu-inspired SVG icon overrides, and a gentle animated title whale badge. |
 
 ---
 
@@ -54,6 +55,7 @@ SiteFlow separates **built-in official plugins** (`pack_id: "official"`, bundled
 | Pack (`siteflow-plugins`) | `code_copy_badge` | `blog` | Declarative code block toolbar with language chip & clipboard copy |
 | Pack (`siteflow-plugins`) | `space_welcome_badge` | `space` | Declarative space status bar & live gallery card counter |
 | Pack (`siteflow-plugins`) | `resume_print_badge` | `resume` | Declarative resume availability ribbon with print visibility switch |
+| Pack (`siteflow-plugins`) | `dafeiyu_theme` | `space`, `blog`, `resume` | Declarative deep-sea theme tokens, custom SVG icon set & animated title whale badge |
 
 ---
 
@@ -81,11 +83,25 @@ siteflow-plugins/
     │   └── assets/
     │       ├── style.css
     │       └── main.js
-    └── resume_print_badge/
+    ├── resume_print_badge/
+    │   ├── plugin.json
+    │   └── assets/
+    │       ├── style.css
+    │       └── main.js
+    └── dafeiyu_theme/
         ├── plugin.json
         └── assets/
             ├── style.css
-            └── main.js
+            ├── main.js
+            ├── badge-whale.svg
+            └── icons/
+                ├── book-open.svg
+                ├── file-text.svg
+                ├── folder.svg
+                ├── globe.svg
+                ├── layers.svg
+                ├── link.svg
+                └── mail.svg
 ```
 
 ---
@@ -119,9 +135,11 @@ siteflow-plugins/
 | `icon` | No | Lucide icon key in SiteFlow `icons.html` (falls back to `"puzzle"`) | Card icon in the admin UI. |
 | `targets` | Yes | Non-empty subset of `["blog", "space", "resume"]` | Project types where this plugin can be enabled. |
 | `pages` | No | Subset of `["list", "post", "space", "resume"]` | Specific rendered pages where assets/mount load. |
-| `slot` | Yes | `"body_start" \| "main_start" \| "body_end" \| "none"` | Template injection slot for the mount element. |
+| `slot` | Yes | `"body_start" \| "main_start" \| "body_end" \| "header" \| "aside" \| "overlay" \| "footer" \| "title_deco" \| "none"` | Template injection slot for the mount element. |
 | `assets` | Yes | `{"css": [...<=5], "js": [...<=5]}` under `assets/`, each `<= 256 KB` | Static stylesheets and deferred scripts served same-origin. |
-| `mount` | No | `{"tag": "div"\|"aside"\|"section", "class": "...", "aria_label": "<=80"}` | Safe declarative mount element rendered by SiteFlow. |
+| `mount` | No | `{"tag": "div"\|"aside"\|"section"\|"span", "class": "...", "aria_label": "<=80"}` | Safe declarative mount element rendered by SiteFlow. |
+| `tokens` | No | Object of `<= 30` allowlisted CSS custom properties | Safe `:root` theme token overrides (strictly sanitized). |
+| `icon_overrides` | No | Object of `<= 30` allowlisted icon keys mapped to `assets/*.svg` | Custom sanitized SVG icons replacing built-in Lucide icons. |
 | `config_schema` | No | Array of `<= 20` field objects | Generates the admin drawer form and server-side validation. |
 
 Supported `config_schema` field kinds:

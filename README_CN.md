@@ -35,6 +35,7 @@
 | `code_copy_badge` | `siteflow-plugins.code_copy_badge` | `blog` | `post` | `body_end` | 自动为 `.post-body pre > code` 代码块添加语言标签与纯 SVG 一键复制按钮。 |
 | `space_welcome_badge` | `siteflow-plugins.space_welcome_badge` | `space` | `space` | `main_start` | 在空间画廊顶部呈现极简状态胶囊、实时作品卡片计数与自定义欢迎语。 |
 | `resume_print_badge` | `siteflow-plugins.resume_print_badge` | `resume` | `resume` | `main_start` | 在简历顶部展示求职意向、到岗说明与更新标记，支持控制打印/导出 PDF 时是否保留。 |
+| `dafeiyu_theme` | `siteflow-plugins.dafeiyu_theme` | `space`, `blog`, `resume` | `space`, `list`, `post`, `resume` | `title_deco` | 清透深海蓝白配色 Tokens、大肥鱼风格自定义 SVG 图标集与标题旁微动效大肥鱼徽章。 |
 
 ---
 
@@ -54,6 +55,7 @@ SiteFlow 将 **内置官方插件**（`pack_id: "official"`，随 SiteFlow 本�
 | 插件包（`siteflow-plugins`） | `code_copy_badge` | `blog` | 声明式代码块语言标签与一键复制工具栏 |
 | 插件包（`siteflow-plugins`） | `space_welcome_badge` | `space` | 声明式空间状态徽章栏与实时作品计数 |
 | 插件包（`siteflow-plugins`） | `resume_print_badge` | `resume` | 声明式简历求职状态条与打印显隐开关 |
+| 插件包（`siteflow-plugins`） | `dafeiyu_theme` | `space`, `blog`, `resume` | 声明式深海蓝白配色 Tokens、自定义 SVG 图标覆盖集与标题旁微动效大肥鱼徽章 |
 
 ---
 
@@ -81,11 +83,25 @@ siteflow-plugins/
     │   └── assets/
     │       ├── style.css
     │       └── main.js
-    └── resume_print_badge/
+    ├── resume_print_badge/
+    │   ├── plugin.json
+    │   └── assets/
+    │       ├── style.css
+    │       └── main.js
+    └── dafeiyu_theme/
         ├── plugin.json
         └── assets/
             ├── style.css
-            └── main.js
+            ├── main.js
+            ├── badge-whale.svg
+            └── icons/
+                ├── book-open.svg
+                ├── file-text.svg
+                ├── folder.svg
+                ├── globe.svg
+                ├── layers.svg
+                ├── link.svg
+                └── mail.svg
 ```
 
 ---
@@ -119,9 +135,11 @@ siteflow-plugins/
 | `icon` | 否 | SiteFlow `icons.html` 中有效的 Lucide 图标名（缺省回退为 `"puzzle"`） | 管理后台插件卡片图标。 |
 | `targets` | 是 | `["blog", "space", "resume"]` 的非空子集 | 允许启用该插件的项目类型。 |
 | `pages` | 否 | `["list", "post", "space", "resume"]` 的子集 | 实际渲染加载该插件的页面类型。 |
-| `slot` | 是 | `"body_start" \| "main_start" \| "body_end" \| "none"` | 挂载节点插入的模板插槽位置。 |
+| `slot` | 是 | `"body_start" \| "main_start" \| "body_end" \| "header" \| "aside" \| "overlay" \| "footer" \| "title_deco" \| "none"` | 挂载节点插入的模板插槽位置。 |
 | `assets` | 是 | `{"css": [...<=5], "js": [...<=5]}`，均位于 `assets/` 内且单文件 `<= 256 KB` | 同源下发的静态样式与延迟执行脚本。 |
-| `mount` | 否 | `{"tag": "div"\|"aside"\|"section", "class": "...", "aria_label": "<=80"}` | SiteFlow 渲染的安全声明式挂载容器。 |
+| `mount` | 否 | `{"tag": "div"\|"aside"\|"section"\|"span", "class": "...", "aria_label": "<=80"}` | SiteFlow 渲染的安全声明式挂载容器。 |
+| `tokens` | 否 | 不超过 30 项白名单 CSS 变量映射对象 | 经严格净化的 `:root` 主题配色与圆角变量覆盖。 |
+| `icon_overrides` | 否 | 不超过 30 项白名单图标名到 `assets/*.svg` 的映射对象 | 经安全净化的自定义 SVG 图标，替换内置 Lucide 图标。 |
 | `config_schema` | 否 | 不超过 20 个字段配置对象 | 用于自动生成管理后台抽屉表单与服务端校验。 |
 
 `config_schema` 支持的字段类型：
